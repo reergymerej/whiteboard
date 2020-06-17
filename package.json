@@ -1,0 +1,14 @@
+{
+  "name": "whiteboard",
+  "version": "1.0.0",
+  "description": "I like to use my whiteboard, but I don't like to lose stuff from it.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jeremy Greer <jex.grizzle@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "formidable": "^1.2.2"
+  }
+}
