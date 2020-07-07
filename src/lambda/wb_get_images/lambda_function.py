@@ -12,7 +12,7 @@ def get_images():
         if name[0] is 'I':
             modified = ob.get('LastModified')
             images.append({
-                'name': 'https://jex-whiteboard.s3.amazonaws.com/' + name,
+                'path': 'https://jex-whiteboard.s3.amazonaws.com/' + name,
                 'modified': modified.timestamp(),
             })
 
