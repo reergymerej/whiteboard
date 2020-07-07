@@ -6,6 +6,16 @@
     }
   </style>
   <body>
-    <img src="https://jex-whiteboard.s3.amazonaws.com/IMG_3556.JPG" />
+    <img id="board" src="" />
   </body>
+  <script>
+    const url = 'https://edbwqkva0d.execute-api.us-east-1.amazonaws.com/prod'
+    const start = (images) => {
+      let current = 0
+      document.getElementById('board').setAttribute('src', images[current])
+    }
+    fetch(url)
+      .then(x => x.json())
+      .then(start)
+  </script>
 </html>
