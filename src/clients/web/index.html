@@ -10,12 +10,15 @@
   </body>
   <script>
     const url = 'https://edbwqkva0d.execute-api.us-east-1.amazonaws.com/prod'
+    const sort = x => x.sort((a, b) => b.modified - a.modified)
     const start = (images) => {
       let current = 0
-      document.getElementById('board').setAttribute('src', images[current])
+      const image = images[current]
+      document.getElementById('board').setAttribute('src', image.path)
     }
     fetch(url)
       .then(x => x.json())
+      .then(sort)
       .then(start)
   </script>
 </html>
