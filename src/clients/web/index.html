@@ -11,10 +11,33 @@
   <script>
     const url = 'https://edbwqkva0d.execute-api.us-east-1.amazonaws.com/prod'
     const sort = x => x.sort((a, b) => b.modified - a.modified)
+    const setImage = image => document.getElementById('board').setAttribute('src', image.path)
     const start = (images) => {
-      let current = 0
-      const image = images[current]
-      document.getElementById('board').setAttribute('src', image.path)
+      let imageIndex = 0
+      setImage(images[imageIndex])
+      const nextImage = (direction) => {
+        imageIndex += direction
+        if (imageIndex >= images.length) {
+          imageIndex = 0
+        } else if (imageIndex < 0) {
+          imageIndex = images.length - 1
+        }
+        const image = images[imageIndex]
+        setImage(image)
+      }
+      document.addEventListener('keydown', x => {
+        switch (x.which) {
+          case 72:
+            // h
+            nextImage(-1)
+            break
+          case 76:
+            // l
+            nextImage(1)
+            break
+          default:
+        }
+      })
     }
     fetch(url)
       .then(x => x.json())
