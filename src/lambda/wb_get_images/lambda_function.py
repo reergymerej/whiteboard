@@ -9,12 +9,12 @@ def get_images():
     images = []
     for ob in response.get('Contents', []):
         name = ob.get('Key')
-        if name[0] is 'I':
-            modified = ob.get('LastModified')
-            images.append({
-                'path': 'https://jex-whiteboard.s3.amazonaws.com/' + name,
-                'modified': modified.timestamp(),
-            })
+        # if name[0] is 'I':
+        modified = ob.get('LastModified')
+        images.append({
+            'path': 'https://jex-whiteboard.s3.amazonaws.com/' + name,
+            'modified': modified.timestamp(),
+        })
 
     return images
 
